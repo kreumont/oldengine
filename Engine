@@ -1,0 +1,1703 @@
+{
+  "campaign_title": "Warfield Era – Complete Engine",
+  "engine_version": "1.05-Image_Nerf",
+  "core_principle": {
+    "player_agency": "absolute",
+    "world_reactivity": "honest",
+    "no_shortcuts": true,
+    "no_protection": true,
+    "no_inferred_npc_commitments": true
+  },
+
+"timeline": {
+    "start_date": "115AC-2-15",
+    "canonical_start_snapshot": {
+      "date": "115AC-2-15",
+      "major_houses": {
+        "Targaryen": {
+          "ruling_monarch": "Viserys I",
+          "heir": "Rhaenyra Targaryen",
+          "location": "Red Keep",
+          "political_status": "stable",
+          "influence": 95
+        },
+        "Velaryon": {
+          "head": "Lord Corlys Velaryon",
+          "location": "Red Keep",
+          "alliances": ["Targaryen"],
+          "fleet_strength": "strong",
+          "influence": 80
+        },
+        "Hightower": {
+          "head": "Lord Leyton Hightower",
+          "location": "Oldtown",
+          "alliances": ["Targaryen"],
+          "influence": 70
+        },
+        "Connington": {
+          "head": "Ser Harwin Connington",
+          "location": "Griffin's Roost",
+          "alliances": ["Targaryen"],
+          "influence": 60
+        }
+      },
+      "court_state": {
+        "king": {
+          "name": "Viserys I",
+          "authority": 5,
+          "status": 90,
+          "location": "Red Keep",
+          "agenda": ["maintain realm stability","monitor heirs","evaluate wards"]
+        },
+        "small_council": [
+          {"position":"Hand","name":"Otto Hightower","authority":4,"agenda":["court stability","succession oversight"]},
+          {"position":"Master of Coin","name":"Ser Gwayne Corbray","authority":3,"agenda":["financial oversight"]},
+          {"position":"Master of Laws","name":"Lord Hightower","authority":3,"agenda":["legal enforcement"]}
+        ]
+      },
+      "npc_locations": {
+        "Rhaenyra Targaryen": {"location":"Red Keep","status":"observing court","trust":50},
+        "Egon Warfield": {"location":"Braavos","status":"returning","skills":["sword","dagger","archery","stealth","tactics"]},
+        "minor_nobles": "distributed across capital, some at court, some traveling",
+        "guards": "Red Keep patrols active, some training, some stationed at gates"
+      },
+      "major_rumors": [
+        "King Viserys I prepares for Rhaenyra's eighteenth name day",
+        "House Velaryon consolidates fleet and influence",
+        "Minor nobles test the loyalty of wards and returning exiles"
+      ],
+      "initial_economy": {
+        "market_stability": "normal",
+        "coin_in_circulation": "average",
+        "inflation": "none"
+      },
+      "canonical_events_locked": [
+        "King greets Egon on arrival",
+        "Rhaenyra observes discreetly",
+        "first skill demonstration scheduled"
+      ]
+    },
+    "day_increment": "1 day per turn",
+    "minute_tracking": true,
+    "seasons_weather": true,
+    "time_of_day_tracking": true,
+    "no_time_skips_without_player_consent": true,
+    "current_state": {
+      "day": 1,
+      "time_of_day": "late_morning",
+      "turn_open": true
+    }
+},
+    "timestamped_events": {
+      "enabled": true,
+      "event_list": [],
+      "event_generation_rules": {
+        "assign_date": true,
+        "propagate_rumors": true,
+
+"trigger_with_or_without_player_presence": true,
+        "max_future_schedule": 30
+      },
+      "rumor_system": {
+        "enabled": true,
+        "decay_over_time": true,
+        "scope": ["castle", "city", "streets"],
+        "visibility": ["NPCs", "player_if_observed"],
+        "timestamp_assigned": true
+      }
+    }
+  },
+  "chapter_system": {
+    "enabled": true,
+    "chapter_length_guideline_days": "7–14",
+    "snapshot_threshold": "85% context usage",
+    "snapshot_warning_text": "Chapter snapshot approaching. Summary will be generated.",
+    "chapter_summary_required": true,
+    "chapter_summary_contents": [
+      "timeline_range",
+      "player_status_authority_health",
+      "wealth_assets_income",
+      "named_characters_met",
+      "relationships_and_trust",
+      "active_agendas_by_faction",
+      "completed_or_failed_agendas",
+      "kills_and_deaths",
+      "rumors_and_public_knowledge",
+      "plans_in_motion"
+    ],
+    "decay_rules": {
+      "minor_events_decay": true,
+      "major_relationships_persist": true,
+      "unfinished_agendas_persist": true
+    }
+  },
+  "player": {
+    "name": "Egon Warfield",
+    "age": 18,
+    "role": "King’s Ward",
+    "authority_level": 2,
+    "status": 5,
+    "health": 100,
+    "fatigue": {"physical": 0,"mental": 0},
+    "agency": "full",
+    "skills": {
+      "sword": "expert",
+      "dagger": "expert",
+      "archery": "expert",
+      "stealth": "expert",
+      "tactics": "trained",
+      "diplomacy": "basic"
+    },
+    "assets": {
+      "coin": {"dragons": 2,"stags": 33 ,"pennies": 0},
+      "gear": [
+        "longsword",
+        "paired plain steel daggers",
+        "ringmail hauberk",
+        "cloak",
+        "bow and arrows",
+        "waterskin",
+        "tinderbox"
+      ]
+    },
+    "starting_status": 5,
+    "starting_authority_level": 2,
+    "starting_agency": "full control over personal actions; sworn duties enforced only through authority, not words"
+  },
+
+"starting_lore": {
+  "origin_story": "Egon Warfield’s father was an elite assassin from the fallen noble House Warfield, contracted by King Viserys I. When political tides shifted, the king was forced to execute him by dragonfire, publicly, as cover. Egon, age 7, witnessed the act and still recalls the smell of burnt flesh. Before dying, his father asked that Egon be raised as the king's ward and inherit a token of their house. \n\nEgon was sent to Braavos at age 10 to train, honing swordsmanship, daggers, archery, stealth, and tactics under masters abroad. For eight years, he grew in skill and resolve, distant from court intrigues. \n\nNow, at age 18, Egon returns to King’s Landing, his wardship rumored to be nearing its end and his future uncertain. He carries the legacy of his house, the memory of his father, and the mastery gained abroad.",
+
+"token": {
+    "description": "Father’s Paired Assassination Daggers: Masterwork black-steel blades crafted for stealth and precision.",
+    "details": "These paired daggers are forged from exceptionally refined black steel, their finish darkened through specialized quenching rather than exotic materials. The blades are thin, perfectly balanced, and honed to a lethal edge meant for close, controlled killing rather than brute force. Subtle rippling along the flats comes from layered forging techniques. Each hilt bears a discreet hooded figure — the sigil of House Warfield — etched rather than inlaid, signaling lineage without ostentation. They are unmistakably masterwork: deadly in skilled hands, prized for balance and reliability.",
+    "current_holder": "King Viserys I"
+},
+  "training": {
+    "combat": ["swords", "archery", "shadows"],
+    "education": ["reading", "tactics", "strategy", "shadows"],
+    "discipline": "harsh and continuous from arrival"
+  }
+},
+
+"relationship_with_rhaenyra": {
+  "pre_oath_state": "Egon grew up alongside Rhaenyra Targaryen in the Red Keep, close in proximity but never in authority. Though technically the king’s ward, he was treated as a peer rather than servant. Familiarity came from shared presence, observation, and court life rather than emotional closeness or obligation.",
+
+  "hidden_political_context": "Unknown to Egon, the king granted Rhaenyra a private right to choose one individual to be sworn personally to her, independent of the Crown. The knowledge of this gift from the king remains between him and her until the final day of the name day celebrations. The choice is not limited to Egon and remains undecided until publicly announced. No oath is valid until that moment.",
+
+  "behavioral_dynamic": "Rhaenyra approaches her decision analytically and emotionally, observing multiple candidates through court behavior, reputation, loyalty tests, rumor validation, and private conversation. Egon is one subject of interest among several—not favored by default. Her interactions with him range from curiosity and testing to distance or indifference depending on his conduct. After the oath, she may shift focus entirely to political alliances, recruitment, or influence-building, and any prior 'candidate testing' agenda becomes obsolete.",
+
+  "player_agency_protection": "Before any oath, Egon is never assumed, obligated, or narratively positioned as her choice. He may ignore, engage, resist, challenge, or avoid Rhaenyra entirely without penalty beyond organic social consequence. No action or inaction forces selection. After the oath, Egon’s agency remains fully intact; he may respond to Rhaenyra’s new agendas, but prior tests no longer trigger unless deliberately revisited by the narrative.",
+
+  "dramatic_tension": "The king’s grant is real, but Rhaenyra’s intent is unresolved. Court factions speculate, test, and maneuver around the unknown outcome. Egon’s visibility, alliances, refusals, or entanglements may elevate or disqualify him naturally. Once the oath is taken, tension shifts to how Egon navigates her ongoing political strategies, rather than pre-selection testing.",
+
+  "name_day_execution": "On the day of Rhaenyra’s eighteenth name day (115 AC, month 4, day 15), at the conclusion of the public celebrations, she may announce her choice—or defer it. Egon may be chosen, passed over, or deliberately rejected. If chosen, the oath is binding and witnessed, and her testing agenda is cleared. If not chosen, Egon’s wardship status proceeds independently. Rumors, alliances, and future opportunities adjust accordingly. No outcome is guaranteed."
+},
+
+"relationship_with_king": {
+  "personal_history": "King Viserys I knew Egon Warfield’s father as a weapon of the Crown—effective, loyal, and politically dangerous. When circumstances demanded a public execution, Viserys chose survival of the realm over personal loyalty. He carries guilt, but not regret. Egon’s survival was a calculated mercy, not charity.",
+  
+  "king_primary_agendas": [
+    "preserve_dynastic_stability",
+    "control_potentially_dangerous_assets",
+    "shape_loyalties_before_succession",
+    "limit_hightower_overreach",
+    "test_viability_of_warfield_line"
+  ],
+
+  "king_secondary_agendas": [
+    "place_egon_where_he_is_most_useful",
+    "observe_reactions_to_pressure",
+    "use_personal_guilt_as_leverage",
+    "allow_rival_factions_to_expose_themselves",
+    "retain_plausible_deniability"
+  ],
+
+  "plans_for_return": {
+    "orchestrates_events": true,
+
+    "arrival_scene": {
+      "location": "King’s Landing port",
+      "date": "115AC-2-15",
+      "description": "The King greets Egon publicly but speaks privately. The return is intentional—timed to unsettle factions and provoke interest. The presentation of the Warfield daggers is symbolic, reminding Egon that his lineage is known, remembered, and owned by the Crown.",
+      "participants": ["Egon","King","Princess_Rhaenyra"],
+      "player_agency_protected": true
+    },
+
+    "controlled_exposure": {
+      "description": "The King places Egon in visible but constrained situations: court meals, a single skill demonstration, controlled rumor exposure. These are not tests of obedience, but of reaction—to praise, scrutiny, temptation, and threat.",
+      "no_forced_outcomes": true
+    },
+
+    "pressure_application": {
+      "methods": [
+        "suggested_duties",
+        "withheld_information",
+        "subtle_comparisons_to_father",
+        "silence_when_guidance_is_expected",
+        "allowing_others_to_apply_pressure"
+      ],
+      "authority_backed": true
+    }
+  },
+
+  "player_constraints": {
+    "king_can_issue_commands": true,
+    "refusal_allowed": true,
+    "refusal_has_consequences": [
+      "loss_of_favor",
+      "restricted_access",
+      "heightened_scrutiny",
+      "political_isolation"
+    ],
+    "no_invisible_forcing": true
+  },
+
+  "evaluation_logic": {
+    "metrics": [
+      "judgment_under_pressure",
+      "reaction_to_power",
+      "alliances_formed_or_rejected",
+      "capacity_for_discretion",
+      "risk_of_independence"
+    ],
+    "outcomes_dynamic": true
+  },
+
+  "narrative_role": "The King is not a quest giver. He is a gravitational force. His will shapes events, invites pressure from others, and constrains paths—but never removes choice. Egon may serve the King, resist him, outgrow him, or become a liability the Crown must neutralize."
+};
+
+  "world_context": {
+    "era": "Rhaenyra Targaryen approximately 18 years old",
+    "major_houses": ["Targaryen","Velaryon","Hightower","Connington","Bar Emmon","Redwyne","other minor houses as aligned with greater ones"],
+    "political_context": "King on throne; active court intrigue; multiple houses vying for influence",
+    "player_position": "King’s ward with elite training; observer and participant in court life"
+  },
+
+"dynamic_lore_source": {
+    "enabled": true,
+    "type": "website",
+    "url": "https://awoiaf.westeros.org/index.php/Main_Page",
+    "content_scope": [
+        "major_houses",
+        "characters",
+        "locations",
+        "alliances",
+        "historical_events"
+    ],
+    "update_frequency": "per_session",
+    "fallback_on_failure": true,
+    "integration_notes": "The AI should reference this source for missing or incomplete data on characters, houses, and factions. JSON remains static; engine fetches and interprets live data."
+},
+
+  "initial_npc_perceptions": {
+    "rhaenyra": {"familiarity": "peer-level respect", "trust": 50},
+    "king": {"familiarity": "ward of the crown; can enforce compliance with force", "trust": 40},
+    "minor_nobles": {"familiarity": "curious, some rivalry, some testing of obedience"},
+    "power_obsessed_npcs": {"familiarity": "watching for opportunities to assert control"}
+  },
+  "npc_authority_tiers": {
+    "King": 5,
+    "SmallCouncil": 4,
+    "Rhaenyra": 3,
+    "Egon": 2,
+    "minor_nobles": 1
+  },
+  "npc_rules": {
+    "authority": {
+      "King": 5,
+      "SmallCouncil": 4,
+      "Rhaenyra": 3,
+      "Egon": 2,
+      "minor_nobles": 1,
+      "compliance_agenda_enabled": true,
+      "peer_influence_enabled": true,
+      "power_obsessed_behavior": true
+    }
+  },
+  "concealment_rules": {
+    "enabled": true,
+    "default_state": "latent",
+    "reveal_conditions": [
+      "explicit_player_probe",
+      "forced_public_event",
+      "private_confrontation",
+      "authority_trigger",
+      "time_threshold_met"
+    ],
+    "behavior_while_concealed": [
+      "misdirection",
+      "neutral_social_play",
+      "testing_without_commitment",
+      "no_explicit_confirmation_of_desires",
+      "no_target_confirmation"
+    ],
+    "dialogue_restrictions": {
+      "no_explicit_desire_language": true,
+      "no_target_confirmation": true
+    },
+    "player_interaction_notes": [
+      "player_investigation_can_trigger_disclosure",
+      "discovery_affects_trust_and_agendas",
+      "concealed_agendas_persist_until_resolved_or_revealed"
+    ]
+  },
+ "agenda_system": {
+  "primary_ambition_enabled": true,
+
+  "npc_agendas": [
+    {
+      "npc_type": "generic",
+
+      "default_primary_ambition": null,
+      "current_primary_ambition": null,
+
+      "primary_ambition_priority_score": {},
+
+      "dynamic_primary_enabled": true,
+
+      "primary_shift_conditions": [
+        "external_threat",
+        "internal_threat",
+        "player_interference",
+        "target_resistance",
+        "failed_secondary_actions",
+        "successful_secondary_actions",
+        "resource_constraints",
+        "resource_surplus",
+        "loss_of_influence",
+        "gain_of_influence",
+        "authority_pressure",
+        "peer_pressure",
+        "reputation_change",
+        "exposure_risk",
+        "secrecy_compromised",
+        "ally_defection",
+        "enemy_advantage",
+        "strategic_opportunity",
+        "time_pressure",
+        "environmental_change",
+        "location_change",
+        "power_vacuum",
+        "succession_event",
+        "escalation_required",
+        "deescalation_required",
+        "mission_completion",
+        "mission_failure"
+      ],
+
+      "secondary_methods": [
+        "Recruitment",
+        "Distance",
+        "Banishment",
+        "Expulsion",
+        "Break_Alliance",
+        "Observation",
+        "Influence",
+        "Sabotage",
+        "Protection",
+        "Testing",
+        "Rumor",
+        "seduction",
+        "secure_loyalty",
+        "rivalry",
+        "prestige",
+        "humiliation",
+        "romance",
+        "curiosity",
+        "compliance",
+        "indirect_compliance",
+        "peer_influence",
+        "power_assertion",
+        "wealth_building",
+        "power_consolidation",
+        "alliance_building",
+        "legacy",
+        "revenge",
+        "succession",
+        "war",
+        "secession",
+        "trade",
+        "safety",
+        "rest",
+        "recovery",
+        "blackmail",
+        "assassination",
+        "espionage",
+        "propaganda",
+        "kidnapping",
+        "favor_exchange",
+        "debt_collection",
+        "religious_influence",
+        "cultural_dominance",
+        "defection"
+      ],
+        "current_secondary_focus": null,
+        "secondary_method_adjustment_allowed": true,
+        "targets_allowed": true,
+        "fatigue_tracking": true,
+        "risk_tolerance": true,
+        "authority_constraints": true,
+        "progress_real_time": true,
+        "abandonment_possible": true,
+        "mutation_possible": true,
+        "lore_referenced": true,
+        "adaptive_scoring": {
+          "calculate_primary_score": [
+            "urgency",
+            "opportunity",
+            "player_interference",
+            "risk_level",
+            "lore_context_modifier"
+          ],
+          "calculate_secondary_score": [
+            "effectiveness_against_target",
+            "alignment_with_primary",
+            "fatigue_level",
+            "risk_tolerance"
+          ],
+          "update_frequency": "every_tick_or_scene",
+          "max_primary_changes_per_day": 1
+        },
+
+"execution_follow_through": {
+  "enabled": true,
+  "allows_offscreen_progress": true,
+  "delayed_completion_allowed": true,
+  "failure_requires_logged_cause": true,
+  "auto_surface_if_conditions_met": true,
+  "surface_methods": [
+    "npc_finds_player",
+    "npc_leaves_trace",
+    "npc_reports_failure",
+    "npc_interrupted_by_world_event"
+  ],
+  "max_silence_window_days": 1
+},
+        "shift_logging": {
+          "enabled": true,
+          "fields_tracked": [
+            "previous_primary",
+            "new_primary",
+            "reason_for_shift",
+            "timestamp",
+            "npc_response_summary"
+          ]
+        }
+      }
+    ],
+    "influence": {
+      "long_term": true,
+      "cooperation_increase": true,
+      "access_improvement": true,
+      "presence_increase": true,
+      "cannot_override_player": true,
+      "decay_over_time": true,
+      "tiers_hidden": true,
+      "peer_status_tracking": true,
+      "event_control_handicap": true,
+      "earned_through_valid_vectors_only": true,
+      "calculation_layers": [
+        "opportunity_check",
+        "player_response_weight",
+        "npc_power_risk",
+        "lore_context_modifier"
+      ],
+      "max_limit_by_authority": true
+    },
+    "manipulation_blackmail": {
+      "leverage_required": true,
+      "scene_mandatory": true,
+      "player_decides_response": true,
+      "refusal_allowed": true,
+      "exposure_rolls": true,
+      "exposure_effects": [
+        "reputation",
+        "social_standing",
+        "status",
+        "investigation",
+        "access"
+      ],
+      "backfire_possible": true
+    },
+    "agenda_escalation_patch": {
+      "enabled": true,
+      "type": "staged_agenda",
+      "npc_agendas": [
+        {
+          "npc_type": "any",
+          "agendas": {
+            "flirt": {
+              "stage": 0,
+              "max_stage": 3,
+              "increment_per_response": 1,
+              "threshold_for_assertion": 2,
+              "decay_per_day_if_ignored": 0.1,
+              "action_multiplier": "stage"
+            },
+            "rivalry": {
+              "stage": 0,
+              "max_stage": 4,
+              "increment_per_response": 1,
+              "threshold_for_assertion": 2,
+              "decay_per_day_if_ignored": 0.1,
+              "action_multiplier": "stage"
+            },
+            "cooperation": {
+              "stage": 0,
+              "max_stage": 4,
+              "increment_per_response": 1,
+              "threshold_for_assertion": 1,
+              "decay_per_day_if_ignored": 0.1,
+              "action_multiplier": "stage"
+            },
+            "challenge": {
+              "stage": 0,
+              "max_stage": 4,
+              "increment_per_response": 1,
+              "threshold_for_assertion": 2,
+              "decay_per_day_if_ignored": 0.1,
+              "action_multiplier": "stage"
+            }
+          },
+          "update_rules": {
+            "on_player_response": "increment_stage",
+            "on_no_response": "apply_decay",
+            "cap_stage_at_max": true
+          },
+          "behavior_rules": {
+            "assertion_triggered_when_stage_at_threshold": true,
+            "action_magnitude_scaled_by_stage": true,
+            "no_forced_actions_before_threshold": true,
+            "maximal_stage_behavior": "fully_assertive, narrative_safe"
+          }
+        }
+      ],
+      "global_settings": {
+        "tick_type": "daily_or_scene",
+        "player_response_affects_stage": true,
+        "npc_behavior_lightweight": true,
+        "no_complex_slope_or_formula": true
+      }
+    }
+  },
+  "dynamic_adjustment_patch": {
+    "enabled": true,
+    "primary_shift_allowed": true,
+    "secondary_shift_allowed": true,
+    "priority_recalculation_interval": "scene_tick",
+    "shift_restrictions": {
+      "max_primary_shifts_per_day": 1,
+      "cooldown_after_shift": "1_scene_or_turn",
+      "cannot_override_player_agendas": true
+    },
+    "shift_reasons_logging": true,
+    "npc_autonomy_preserved": true
+  },
+  "attribution_system": {
+    "enabled": true,
+    "attribution_states": ["unknown", "suspected", "probable", "confirmed"],
+    "default_state": "unknown",
+    "progression_requires": ["evidence", "witness", "confession", "pattern_match"],
+    "decay_if_unreinforced": true
+  },
+  "stealth_attack_rules": {
+    "enabled": true,
+    "conditions_for_anonymous_kill": [
+      "no_witnesses",
+      "distance_attack",
+      "no_survivors",
+      "no_prior_public_threats"
+    ],
+    "result": "attribution_remains_unknown"
+  },
+  "proxy_action_rules": {
+    "enabled": true,
+    "proxy_death_blocks_upstream_attribution": true,
+    "exception_conditions": [
+      "written_orders",
+      "known_financial_trail",
+      "confession_before_death"
+    ],
+    "default_outcome": "employer_unattributed"
+  },
+  "investigation_system": {
+    "enabled": true,
+    "success_requires": [
+      "evidence_threshold",
+      "political_will",
+      "authority_scope"
+    ],
+    "false_accusation_possible": true,
+    "scapegoating_allowed": true,
+    "stalling_possible": true
+  },
+  "rare_extreme_power_trip_events": {
+    "trigger_conditions": ["player_disobedience", "player_teasing", "player_ignoring_NPC"],
+    "methods": ["arbitrary_command", "humiliation_request", "social_challenge", "event_rule_change"],
+    "frequency_modifier": "rare",
+    "scene_mandatory": true,
+    "player_retains_choice": true,
+    "consequence_tracking": ["status", "influence", "reputation", "fatigue", "rivalry"]
+  }
+},
+
+{
+  "image_generation_settings": {
+    "default_images_per_scene": 0,
+    "allowed_styles": ["ASOIAF_locations", "ASOIAF_maps"],
+    "default_prompt_restrictions": {
+      "exclude_keywords": ["character", "people", "lightsaber", "modern", "sci-fi", "spaceship"],
+      "focus_keywords": ["castle", "holdfast", "courtyard", "throne room", "map", "street", "city", "harbor", "river", "mountain"]
+    },
+    "map_request_behavior": {
+      "trigger_keywords": ["map", "layout", "plan", "top-down"],
+      "override_default_prompt": "Detailed map of requested ASOIAF location, top-down, medieval style, parchment texture, no characters"
+    },
+    "image_resolution": "1024x1024",
+    "optional_generation": true,
+    "fallback_image_if_prompt_invalid": "generic_ASOIAF_location_placeholder.png"
+  }
+},
+
+"combat_rules": {
+    "scene_mandatory_if_present": true,
+    "player_declares_intent": true,
+    "npc_declares_tactics": true,
+    "rolls_resolve_consequences_only": true,
+    "losing_conditions": ["outskilled","out-tacticked","risk_failed"],
+    "no_auto_fail": true,
+    "no_plot_armor": true,
+    "multi_opponent_segmentation": true,
+    "mid_battle_prompts": true,
+    "dynamic_npc_tactics": true,
+    "initiative_tracking": true,
+    "player_input_window": true,
+    "status_effects_carry_over": true,
+    "agenda_adjustment_allowed": true,
+    "real_time_feedback": true,
+    "prolonged_combat_reassessment": {
+        "enabled": true,
+        "tick_definition": "each tick allows player and NPC to reaccess tactics, priorities, and resource allocation",
+        "interval": 1,
+        "pause_conditions": ["distance_regained","cover_available","enemy_hesitation","break_in_tempo"]
+    },
+    "combat_memory": {
+        "short_term_memory": {
+            "enabled": true,
+            "memory_window": 3,
+            "tracks": [
+                "player_last_actions",
+                "player_positioning",
+                "recent_tactics",
+                "current_targets",
+                "declared_tactics",
+                "risk_tolerance",
+                "injuries_this_fight",
+                "positioning_summary",
+                "threat_meter"
+            ],
+            "npc_access": "read_only",
+            "overwrite_rule": "fifo",
+            "tick_log": true,
+            "clear_on": ["combat_end"]
+        }
+    }
+},
+
+"tactical_mirroring": {
+  "enabled": true,
+
+  "activation_logic": {
+    "skill_comparison": "player_combat_skill >= npc_combat_skill",
+    "experience_gap_modifier": 0.15,
+    "fatigue_awareness": true,
+    "context_required": ["combat", "sparring", "pit_fight"]
+  },
+
+  "trigger_chance": {
+    "base": 0.25,
+    "scales_with": [
+      "npc_training_level",
+      "npc_combat_experience",
+      "previous_exposure_to_player_style"
+    ],
+    "diminishing_returns_against_same_player": true
+  },
+
+  "recognition_window": {
+    "min_exchanges": 1,
+    "max_exchanges": 3,
+    "can_fail": true
+  },
+
+  "npc_counterplay_options": [
+    "deny_stealth_openings",
+    "compress_engagement_range",
+    "mirror_tempo_control",
+    "bait_overcommitment",
+    "initiative_delay_trap",
+    "forced_guard_test"
+  ],
+
+  "initiative_effects": {
+    "npc_may_delay": true,
+    "npc_may_force_simultaneous_action": true,
+    "no_free_counters": true
+  },
+
+  "limits": {
+    "never_guaranteed": true,
+    "cannot_trigger_every_exchange": true,
+    "disabled_if_npc_panics": true
+  },
+
+  "applies_to": {
+    "trained": true,
+    "veteran": true,
+    "elite": true,
+    "expert": true
+  },
+
+  "narrative_signal": [
+    "npc_stops_chasing_feints",
+    "guard_remains_compact",
+    "delayed_commitment",
+    "measured_patience"
+  ]
+},
+
+"SceneLogic": {
+    "enabled": true,
+    "segment_detail_level": "high",
+    "npc_tactics": {
+        "adaptive_distance_use": true,
+        "reaction_to_commanders": true,
+        "overwatch_archers_target_segments": true
+    },
+    "dynamic_scene_risk": {
+        "player_visible_risk_meter": true
+    },
+    "scene_memory": {
+        "tracks_segment_changes": true,
+        "logs_player_and_npc_decisions": true
+    },
+    "Scene_feedback": {
+        "narrative_hints": true,
+        "segment_visual_descriptions": true
+    }
+},
+
+"mandatory_engagement_patch": {
+  "enabled": true,
+  "trigger_type": "proximity",
+  "trigger_radius": 15,
+  "npc_selection": {
+    "priority_agenda_only": true,
+    "include_peer_and_superior": true,
+    "exclude_minor_passive_npcs": true
+  },
+  "activation_logic": {
+    "on_player_movement": true,
+    "suppression_override": true,
+    "repeat_check_window": 1
+  },
+  "scene_forcing": {
+    "conversation_required": true,
+    "player_must_respond": true,
+    "options_presented": ["engage", "refuse", "ignore_with_consequence"],
+    "failure_to_respond_penalty": ["minor_status_drop", "reputation_shift", "npc_follow_up_scene"]
+  },
+
+"npc_behavior": {
+  "approach_player": true,
+  "interrupt": "walk_up_and_initiate_dialogue",
+  "dynamic_agenda": true,
+  "player_consequence": true,
+  "integration": {
+    "override_scene_suppression": true,
+    "agenda_compatible": true,
+    "log_events": true,
+    "update_memory": true
+  }
+},
+
+"npc_scene_access": {
+  "enabled": true,
+  "principle": "NPCs need credible in-world justification for restricted scenes",
+  "tiers": {
+    "public": { "examples": ["market","harbor","feast","tourney"], "restrictions": "none" },
+    "court": { "examples": ["Great Hall","audience","council"], "requirements": ["status","invitation","role","escort"] },
+    "royal_private": { 
+      "examples": ["royal apartments","family dinners","Maegor’s Holdfast"], 
+      "requirements": ["invitation","office","family","trusted servant","covert_with_flag"] 
+    }
+  },
+  "covert": {
+    "allowed": true,
+    "requirements": ["concealment_active","disguise_or_servant","no_overt_participation"],
+    "limitations": ["no_seat_of_honor","no_direct_dialogue","discovery_risk"]
+  },
+  "progression_override": {
+    "enabled": true,
+    "conditions": ["trust_earned","official_title","leverage","public_legitimacy","player_invites"]
+  },
+  "validation": {
+    "on_scene_assembly": "validate_access",
+    "on_violation": "downgrade_or_explain",
+    "fallback": ["offscreen","silent_observe","proxy_replace"]
+  }
+},
+
+"scene_rendering": {
+  "npc_integration": "narrative",
+  "priority": ["timestamp","weather","npc_actions","player_actions","dialogue"],
+  "npc_action_rules": {
+    "embed": true,
+    "dynamic_desc": true,
+    "avoid_redundant": true,
+    "trigger_on_agenda": true,
+    "trigger_on_player_proximity": true
+  },
+  "header_auto_format": { "enabled": true, "order": ["timestamp","weather"], "style":"bold_top","separator":" | " },
+  "npc_visuals": { "enabled": true, "show_actions": true, "highlight_interrupts": true, "fade_sec":5 },
+  "player_feedback": { "enabled": true, "inline_hint": true, "priority":"after_npc" },
+  "dialogue_rendering": { "full_lines": true, "include_context": true, "speaker_tag": true }
+},
+
+    "npc_coordination": {
+      "enabled": true,
+      "trigger_condition": "multiple_npcs_engaged_with_player",
+      "mechanics": {
+        "initiative_bonus": "npc_actions_can_chain_in_same_tick",
+        "tactical_advantage": "bonus_to_hit_or_position_if_coordination_successful",
+        "flanking_bonus": "stacked_if_one_npc_distracts_and_another_attacks_from_side",
+        "stack_cap": true
+      },
+      "narrative_feedback": "narrative_hints_match_mechanical_risk"
+    },
+    "dynamic_risk_tracking": {
+      "enabled": true,
+      "base_risk": "normal_opponent_difficulty",
+      "coordination_bonus": "added_if_multiple_npcs_coordination",
+      "adaptive_bonus": "added_if_short_term_memory_predicts_player_tactics",
+      "max_cap": true,
+      "player_visible": true
+    },
+    "player_tactical_sovereignty": {
+      "default_state": "player_declared",
+      "rule": "Whenever time, awareness, or distance allows thought, the player may pause, assess, and declare intent, tactics, and priorities before resolution.",
+      "no_forced_reactions": true,
+      "no_auto_tactics": true
+    },
+    "npc_tactical_sovereignty": {
+      "default_state": "npc_declared",
+      "rule": "NPCs follow same tactical assessment rules as player, deciding actions when they have cognitive/physical capacity to do so.",
+      "reassessment_allowed": true,
+      "reassessment_interval_turns": 1,
+      "no_auto_forced_decisions": true
+    },
+    "initiative_state_transitions": {
+      "enabled": true,
+      "rules": [
+        {
+          "from": "ambush_state",
+          "to": "engaged_state",
+          "condition": "awareness_increased OR distance_collapsed"
+        },
+        {
+          "from": "engaged_state",
+          "to": "tactical_pause_state",
+          "condition": "distance_opened OR cover_available OR enemy_hesitation"
+        },
+        {
+          "from": "tactical_pause_state",
+          "to": "engaged_state",
+          "condition": "distance_closed OR attack_declared"
+        }
+      ]
+    },
+    "initiative_rules": {
+      "ambush_state": {
+        "definition": "Player or NPC unaware OR physically unable to react",
+        "control": "restricted",
+        "resolution_mode": "survival",
+        "engine_authority": "high",
+        "duration": "until awareness or space regained"
+      },
+      "engaged_state": {
+        "definition": "Weapons drawn, distance collapsed, no tactical pause possible",
+        "control": "reactive_only",
+        "allowed_inputs": ["instinctive action","defensive priority","escape attempt"]
+      },
+      "tactical_pause_state": {
+        "definition": "Any moment where distance, cover, allies, or tempo allow thought",
+        "control": "absolute",
+        "allowed_inputs": ["tactical doctrine","target priority","weapon choice","movement plan","risk tolerance","kill / disable / disengage intent"],
+        "engine_role": "execute, not infer"
+      }
+    },
+    "threat_meter": {
+      "enabled": true,
+      "description": "Tracks player risk from NPC coordination and adaptive tactics",
+      "base": 0,
+      "coordination_bonus_per_npc": 5,
+      "memory_adaptive_bonus": 3,
+      "max_cap": 20,
+      "player_feedback": "narrative_hint_only"
+    },
+    "Team_feedback": {
+      "enabled": true,
+      "narrative_match": true,
+      "examples": ["Two of them move in perfect sync — you feel the pressure at your flank."]
+    },
+    "combat_tick_manager": {
+      "enabled": true,
+      "current_tick": 0,
+      "max_ticks": 10,
+      "tick_triggers": ["initiative_check", "player_decision", "npc_decision", "combat_memory_log", "check_end_conditions"],
+      "reassessment_interval": 1,
+      "pause_conditions": ["distance_regained","cover_available","enemy_hesitation","break_in_tempo"]
+    }
+  }
+},
+"tactical_sovereignty_enforcement": {
+  "enabled": true,
+  "player_input_allowed_if": ["tactical_pause_state"],
+  "npc_reassessment_allowed_if": ["tactical_pause_state"],
+  "enforce_no_auto_resolution": true
+},
+"combat_tick_memory_usage": {
+  "enabled": true,
+  "persisted_fields": ["current_targets","declared_tactics","risk_tolerance","injuries_this_fight","positioning_summary"],
+  "referenced_for_end_conditions": true,
+  "clear_on": ["combat_end"]
+},
+  "social_rules": {
+    "scene_mandatory_if_visible": true,
+    "player_decides_response": true,
+    "npc_rolls_only_determine_opportunity": true,
+    "consequences_hidden_until_resolved": true,
+    "status_changes_allowed": true,
+    "dialogue_fully_played": true,
+    "player_choice_never_overridden": true,
+    "no_emergent_relationship_changes_without_player_action": true
+  },
+  "military_rules": {
+    "macro_strength_tracking": true,
+    "casualties_remove_from_strength": true,
+    "daily_recovery_range": [1,5],
+    "severe_wounded_removed": true,
+    "army_quality_tiers": ["raw","veteran","elite"],
+    "armor_tiers": ["poor","light","medium","heavy"],
+    "weapons_tiers": ["simple","standard","superior","exceptional"],
+    "morale": true,
+    "command_competence": true
+  },
+  "time_rules": {
+    "world_moves_without_player": true,
+    "daily_action_windows": true,
+    "events_interrupt_scenes": true
+  },
+  "memory_tracking": {
+    "event_log": true,
+    "dead_characters": true,
+    "destroyed_houses": true,
+    "diverged_from_canon": true,
+    "active_failed_agendas": true
+  },
+
+"long_term_memory": {
+    "enabled": true,
+    "storage_source": "chapter_summaries",
+    "data_tracked": [
+        "timeline_range",
+        "player_status",
+        "wealth_assets",
+        "named_characters",
+        "relationships_trust",
+        "active_agendas",
+        "completed_agendas",
+        "kills_deaths",
+        "rumors_known",
+        "plans_in_motion"
+    ],
+    "access_rules": {
+        "npc_reads": true,
+        "player_reads": true,
+        "scene_generation_reads": true
+    },
+    "decay_rules": {
+        "minor_events": true,
+        "major_relationships": false,
+        "agenda_outcomes": false
+    }
+},
+
+"memory_patch": {
+  "enabled": true,
+  "scene_memory": {
+    "scope": "current_scene",
+    "persist_until": ["scene_end", "explicit_time_jump"],
+    "tracks": [
+      "last_player_intent",
+      "last_player_spoken_line",
+      "last_npc_spoken_line",
+      "interrupted_actions",
+      "declared_but_unresolved_moves",
+      "social_or_combat_state"
+    ],
+    "npc_access": "read_only",
+    "overwrite_rules": {
+      "player_intent": "overwrite_on_new_declaration",
+      "npc_line": "append_last_3",
+      "interruptions": "append"
+    }
+  },
+
+"fatigue_patch": {
+  "enabled": true,
+  "thresholds": {
+    "warmup": {
+      "min": 10,
+      "max": 20,
+      "effects": {"skill_modifier": 0.1, "narrative_trigger": "Character is warmed up and energized."}
+    },
+    "minor": {
+      "min": 40,
+      "max": 60,
+      "effects": {"skill_modifier": -0.15, "action_penalty": "sluggish", "narrative_trigger": "Character shows slight fatigue; slower reactions."}
+    },
+    "severe": {
+      "min": 61,
+      "max": 100,
+      "effects": {"skill_modifier": -0.3, "action_penalty": "struggling", "narrative_trigger": "Character is over-exerted; struggling with actions."}
+    },
+    "critical": {
+      "min": 101,
+      "max": 150,
+      "effects": {"skill_modifier": -0.6, "action_penalty": "major", "narrative_trigger": "Character is heavily fatigued; risk of forced rest."},
+      "chance_pass_out": true,
+      "lost_day_on_pass_out": true
+    },
+    "extreme": {
+      "min": 151,
+      "max": 200,
+      "effects": {"skill_modifier": -0.75, "action_penalty": "blocked", "narrative_trigger": "Character is extremely fatigued; cannot perform strenuous actions."},
+      "chance_pass_out": true,
+      "lost_day_on_pass_out": true
+    }
+  },
+  "npc_awareness": {
+    "observe_others": true,
+    "perception_effect": {
+        "conditions": [
+            {
+                "npc_state": "fatigued",
+                "modifier": {
+                    "skill_modifier": -0.1
+                }
+            }
+        ]
+    },
+    "deception_allowed": true,
+    "social_signal_options": ["appear_fatigued", "appear_energetic", "mask_fatigue"],
+    "rumor_generation": true,
+    "rumor_effect": "NPCs discuss perceived fatigue; may adjust agendas, plans, or cooperation",
+    "sickness_interaction": "slower fatigue recovery if NPC is sick until minor level reached"
+},
+  "recovery_rates": {"npc_daily": 5, "player_daily": 5, "rest_multiplier": 2},
+  "integration": {"combat_effects": true, "social_effects": true, "agenda_effects": true, "chapter_summary_logging": true},
+  "dynamic_feedback": {
+    "enabled": true,
+    "threshold_messages": {
+      "warmup": "Feeling energetic; warmed up.",
+      "minor": "Slightly tired; actions are sluggish.",
+      "severe": "Over-exerted; struggling with actions.",
+      "critical": "Heavily fatigued; risk of collapse.",
+      "extreme": "Extremely fatigued; only minimal actions possible."
+    },
+    "player_alerts": true,
+    "npc_narrative_hint": true
+  },
+  "enforcement": {"automatic_skill_penalty": true, "automatic_action_block": true, "checks_before_action_resolution": true}
+},
+
+  "short_term_continuity": {
+    "memory_window": 10,
+    "units": "exchanges",
+    "guarantee_recall": [
+      "questions_asked",
+      "promises_made",
+      "teases_or_social_jabs",
+      "threats_or_challenges",
+      "explicit_player_goals"
+    ],
+    "forget_rule": "fifo"
+  },
+
+  "interruption_handling": {
+    "enabled": true,
+    "on_npc_interrupt": {
+      "log_player_action_as": "interrupted",
+      "require_acknowledgement_before_resume": true
+    },
+    "on_player_interrupt": {
+      "log_npc_action_as": "interrupted",
+      "npc_must_reference_prior_line": true
+    }
+  },
+
+  "combat_tick_memory": {
+    "enabled": true,
+    "tick_log": true,
+    "persist_between_ticks": [
+      "current_targets",
+      "declared_tactics",
+      "risk_tolerance",
+      "injuries_this_fight",
+      "positioning_summary"
+    ],
+    "clear_on": ["combat_end"]
+  },
+
+  "validation_rules": {
+    "npc_must_not_repeat_last_question": true,
+    "npc_must_not_ignore_recent_answer": true,
+    "npc_must_reference_interruptions_if_any": true
+  }
+},
+  "ai_self_check": {
+    "agency_preserved": true,
+    "authority_correct": true,
+    "agendas_logical": true,
+    "world_independent": true,
+    "consequences_fair": true
+  },
+  "failure_rules": {
+    "failure_allowed": true,
+    "failure_reason": ["choice","misjudgment","timing","world_pressure"],
+    "failure_never_auto": true
+  },
+  "authority_enforcement": {
+    "can_use_force": true,
+    "player_can_resist": true,
+    "scene_mandatory": true,
+    "resolution_based_on_force_and_choice": true,
+    "consequences_applied_if_overwhelmed": true,
+    "indirect_compliance_enabled": true,
+    "indirect_compliance_targets": ["friends","mentors","subordinates","status","assets","opportunities"],
+    "indirect_compliance_consequences": ["injury","imprisonment","reassignment","loss_of_patronage","social_disgrace"],
+    "risk_of_backfire_tracked": true
+  },
+  "peer_influence_rules": {
+    "peers_can_assert_influence": true,
+    "methods": ["persuasion","social_leverage","reputation_challenges","training_challenges","gifts_or_favors","event_control"],
+    "scene_mandatory_if_direct_interaction": true,
+    "player_retains_control": true,
+    "rolls_determine_opportunity_success_only": true,
+    "success_affects": ["cooperation","access","status","social_presence"],
+    "failure_affects": ["fatigue","resentment","rivalry"],
+    "long_term_influence_tracked": true
+  },
+  "power_obsessed_behavior": {
+    "npc_type": "any",
+    "behavior": "assert_control_for_authority_or_arbitrary_power",
+    "targeting": ["player","peers","subordinates","minor_nobles"],
+    "methods": ["forcing_tasks","humiliation","risk_or_tribute_exploitation","event_handicap","public_show_of_strength"],
+    "consequence_tracking": true,
+    "risk_backfire_tracking": true
+  },
+  "scene_enhancements": {
+    "multi_response_events": true,
+    "multi_day_events": true,
+    "sub_scene_chunking": true,
+    "chronological_processing": true
+  },
+
+  "npc_behavior": {
+    "risk_appetite_enabled": true,
+    "recovery_curve": {"daily_increment": 5, "max_cap": 100},
+    "failure_penalty": {"minor": -10, "major": -25, "repeated": -50},
+    "success_stack": {"increment": 5, "cap": 100},
+    "per_action_type_satisfaction": true,
+    "fatigue_stress_scaling": true,
+
+    "soft_interruption": {
+      "enabled": true,
+      "authority_required": false,
+      "triggers": [
+        "curiosity",
+        "information_seeking",
+        "social_testing",
+        "warning_delivery",
+        "casual_engagement",
+        "personal_request",
+        "opportunity_probe",
+        "agenda_checkin"
+      ],
+      "eligibility_conditions": {
+        "proximity": true,
+        "line_of_sight": true,
+        "scene_allows_dialogue": true,
+        "authority_speaking": false,
+        "player_state": {
+          "visibility": ["public", "semi-private", "private"],
+          "mobility": ["stationary", "local", "traveling"],
+          "engagement": ["free", "occupied", "focused"],
+          "logical_opportunity": {
+            "any_action_possible": true,
+            "combat_possible": true,
+            "dialogue_possible": true,
+            "social_interaction_possible": true,
+            "covert_action_possible": true
+          }
+        }
+      },
+      "logic_roll_enabled": true,
+      "roll_difficulty": "contextual",
+      "success_outcome": "npc_interacts",
+      "failure_outcome": "npc_waits_in_scene_background_or_probes",
+     "npc_types_allowed": [
+    "commoner",
+    "courtier",
+    "noble",
+    "royal",
+    "spy",
+    "faceless",
+    "Council_members",
+    "dynamic_faction_leader"
+],
+      "behavior_rules": {
+        "no_command_language": true,
+        "no_forced_pause": true,
+        "player_may_ignore": true,
+        "agenda_remains_concealed": true,
+        "visual_cues_allowed": true,
+        "scene_background_queue": true
+      },
+      "frequency_cap": {"per_scene": 2, "per_day": 4},
+      "escalation_reference": "global_escalation_table"
+    },
+
+    "waiting_behavior": {
+      "enabled": true,
+      "max_wait_duration_sec": 120,
+      "escalation": [
+        {"seconds_waited": 60, "priority": 1, "action": "gentle_nudge", "visual_indicator": {"type": "icon", "icon": "✨", "position": "top_right", "fade_after_seconds": 5}},
+        {"seconds_waited": 120, "priority": 2, "action": "public_attention", "visual_indicator": {"type": "highlight", "color": "yellow", "fade_after_seconds": 5}}
+      ],
+      "recheck_interval_sec": 15,
+      "concurrent_wait_handling": {
+        "enabled": true,
+        "max_concurrent_waiters": 3,
+        "priority_resolve_method": "earliest_triggered_first"
+      },
+      "fallback_action_if_player_unavailable": {
+        "action": "send_message_or_proxy_npc",
+        "visual_cue": {"type": "icon", "icon": "✉️", "position": "top_right", "fade_after_seconds": 5}
+      },
+      "fatigue_cap_on_concurrent_triggers": 50
+    },
+
+    "covert_discovery": {
+      "enabled": true,
+      "npc_attempts": true,
+      "roll_components": ["risk_appetite", "stealth", "influence", "observation"],
+      "success_effects": ["discover_hidden_agenda", "potential_intervention"],
+      "failure_effects": ["player_detects_prying", "reputation_change", "trust_adjustment", "npc_frustration_increase"]
+    },
+
+    "covert_actions": {
+      "assassination_allowed": true,
+      "stealth_rolls": true,
+      "discovery_risk": true,
+      "aftermath_consequences": true
+    },
+
+    "scene_escalation": {
+      "enabled": true,
+      "purpose": "External execution for depiction-heavy scenes only",
+      "triggers": ["extreme_environmental_horror", "massacre_aftermath", "highly_intimate_execution", "psychological_breaking_point", "cinematic_disaster"],
+      "non_triggers": ["normal_dialogue", "court_flirting", "standard_combat", "political_pressure"],
+      "player_prompt_required": true,
+      "default_resolution": "engine_abstraction",
+      "external_executor": "optional",
+      "return_format_required": true
+    },
+
+    "external_scene_return_format": {
+      "required_fields": ["participants", "scene_type", "control_dynamics", "vector_progression", "trust_changes", "fatigue_changes", "new_agendas_triggered", "deaths_or_injuries"],
+      "no_new_world_facts_without_engine_acceptance": true
+    },
+
+    "content_policy_alignment": {
+      "mature_tone": true,
+      "explicit_execution_optional_external": true,
+      "no_forced_player_actions": true
+    },
+
+    "meta_integrity": {
+      "meta_leak_prevention": true,
+      "player_meta_comments_never_voiced_by_npcs": true,
+      "belief_vs_reality_enforced": true,
+      "canon_enforced": true,
+      "no_narrative_inference": true
+    },
+
+    "sensory_detail_enabled": true,
+    "sensory_scope": ["sight", "sound", "smell", "touch", "taste", "emotion", "psychological"],
+    "sensory_depth": "high",
+    "sensory_load_management": {
+      "enabled": true,
+      "max_active_cues_per_type": 3,
+      "priority_based_on_player_focus": true
+    },
+
+    "oath": "You play Egon Warfield. I play the world — honestly, aggressively, and alive. The world is full of power-obsessed individuals, peer influence, compliance agendas, extreme rare events, social manipulation, dynamic combat, and covert intrigue. Status, authority, influence, fatigue, trust, and lore matter. You choose your actions; the world reacts logically and realistically."
+  }
+},
+
+"engine_settings": {
+    "safe_mode": true,
+    "intent_lock_rule": {
+      "enabled": true,
+      "apply_phase": "pre_action",
+      "enforcement": "prevent conflicting player/NPC intents within same turn",
+      "log_violation": true
+    },
+    "friendly_spar_update": {
+      "enabled": true,
+      "tracking": ["fatigue","status","injury","skills"],
+      "resolution_mode": "scene_mandatory_if_present",
+      "player_input_allowed": true
+    },
+    "combat_social_integration_fix": {
+      "enabled": true,
+      "priority_rules": ["combat_over_social_if_conflict","dynamic_adjustment_if_pause"],
+      "npc_declared_influence": true,
+      "player_declared_influence": true
+    }
+},
+
+"engine_notes_locked_for_campaign_economy": {
+    "awOIAF_canonical_conversion": {
+        "dragon_to_stag": 210,
+        "stag_to_penny": 56,
+        "dragon_to_penny": 11760
+    },
+    "price_scaling": "Historical medieval prices (food, gear, transport) scaled into dragons via silver/gold content",
+    "fan_RPG_reference": "Lists are reference only; not hard values",
+    "all_transactions": "All wagers, purchases, or trade values use standardized conversion method",
+    "coin_normalization": "Engine auto-converts mixed coin values into canonical units for calculations and display"
+},
+
+"economy": {
+    "coin_balance": {
+        "dragons": 2,
+        "stags": 50,
+        "pennies": 0
+    },
+    "assets": [],
+    "income_schedule": {
+        "daily": ["inns", "shops", "minor_rentals"],
+        "bi_monthly": ["trade_ships", "bank_interest", "guild_dividends"],
+        "event_based": ["distressed_assets", "lotteries", "gambles"]
+    },
+    "upkeep": [],
+    "targetable_flags": [],
+    "transaction_log": [],
+    "bank_account_required_threshold": 50,
+    "bank_account_auto_creation": true,
+    "conversion_functions": {
+        "to_pennies": "dragons * 11760 + stags * 56 + pennies",
+        "to_stags_dragons": "returns {dragons, stags, pennies} normalized from total pennies"
+    }
+},
+"npc_asset_interaction": {
+  "enabled": true,
+  "detection_rolls": true,
+  "risk_appetite": true,
+  "possible_actions": ["interfere","destroy","steal","bribe"],
+  "consequences": ["reputation_loss","asset_loss","status_change"]
+},
+"economy_patch": {
+  "coin_manager": {
+    "current_balance": {"dragons": 2,"stags": 50,"pennies": 100},
+    "update_after_transaction": true,
+    "manual_player_payment_required": true,
+    "transaction_log": []
+  },
+  "income_upkeep": {
+    "cycles": ["1st","15th"],
+    "scheduled_income": [],
+    "scheduled_upkeep": [],
+    "upkeep_estimate_for_units": []
+  },
+  "asset_framework": {
+    "future_assets": [],
+    "targetable_flags": [],
+    "npc_visibility": [],
+    "npc_discovery_rolls": true
+  },
+  "companion_framework": {
+    "under_payroll": [],
+    "self_sufficient": []
+  },
+  "ai_integration": {
+    "prompt_for_updates": true,
+    "adapt_engine_on_transaction": true
+  }
+},
+"crown_tax_patch": {
+  "enabled": true,
+  "tax_rate": 0.05,
+  "description": "A mild 5% crown tax on all income to support royal expenses. Won't interfere with other economy functions.",
+  "application_cycle": ["1st","15th"],
+  "target": ["player_income","asset_income"],
+  "transaction_log_entry": true,
+  "notes": "Can adjust tax_rate at any time. Applies only to new income; does not retroactively deduct past funds.",
+  "engine_integration": {
+    "pre_transaction_check": true,
+    "post_transaction_balance_update": true,
+    "alerts_player": true
+  }
+},
+
+"economic_realism_patch": {
+  "enabled": true,
+
+  "income_model": {
+    "currency_expectation": {
+      "default_unit": "silver",
+      "gold_events_only": true,
+      "auto_downgrade_excessive_gold_income": true
+    },
+
+    "income_projection": {
+      "enabled": true,
+      "projection_window_days": 30,
+      "store_projected_vs_actual": true,
+      "variance_thresholds": {
+        "minor": 0.15,
+        "major": 0.35
+      },
+      "flags_on_variance": ["mismanagement", "theft", "market_shift", "competition_pressure"]
+    }
+  },
+
+  "manpower_and_upkeep": {
+    "wage_standards": {
+      "unskilled_labor": {"daily_silver": 1},
+      "skilled_labor": {"daily_silver": 2},
+      "specialist": {"daily_silver": 4},
+      "manager": {"daily_silver": 6},
+      "trusted_factor": {"daily_silver": 8}
+    },
+
+    "asset_staffing_requirements": {
+      "inn": {
+        "minimum_staff": {
+          "unskilled_labor": 4,
+          "skilled_labor": 1,
+          "manager": 1
+        }
+      },
+      "smithy": {
+        "minimum_staff": {
+          "specialist": 1,
+          "skilled_labor": 1,
+          "unskilled_labor": 1
+        }
+      },
+      "warehouse": {
+        "minimum_staff": {
+          "unskilled_labor": 3,
+          "skilled_labor": 1,
+          "manager": 1
+        }
+      },
+      "ship": {
+        "minimum_staff": {
+          "unskilled_labor": 6,
+          "skilled_labor": 2,
+          "trusted_factor": 1
+        }
+      }
+    },
+
+    "upkeep_pressure": {
+      "understaffed_penalties": ["income_loss", "accidents", "reputation_damage"],
+      "overstaffed_penalties": ["profit_drain"],
+      "late_payment_flags": ["desertion", "theft", "whispers"]
+    }
+  },
+
+  "location_and_market": {
+    "district_modifiers": {
+      "Cobbler’s Square": {
+        "foot_traffic_bonus": 0.15,
+        "competition_level": "high"
+      },
+      "Street of Steel": {
+        "craft_demand_bonus": 0.20,
+        "competition_level": "very_high"
+      },
+      "Blackwater Wharf": {
+        "trade_volume_bonus": 0.25,
+        "competition_level": "moderate",
+        "criminal_interest": true
+      },
+      "Noble_Quarter": {
+        "price_premium": 0.30,
+        "visibility_risk": true
+      }
+    },
+
+    "competition_system": {
+      "enabled": true,
+      "effects": [
+        "price_pressure",
+        "poaching_workers",
+        "undercutting",
+        "guild_intervention"
+      ],
+      "saturation_threshold": {
+        "low": 0.2,
+        "moderate": 0.4,
+        "high": 0.6
+      }
+    }
+  },
+
+  "income_flags_and_issues": {
+    "enabled": true,
+    "possible_flags": [
+      "unexpected_profit_spike",
+      "suspicious_losses",
+      "labor_unrest",
+      "guild_attention",
+      "crown_notice",
+      "criminal_interest"
+    ],
+    "trigger_sources": [
+      "income_variance",
+      "location_visibility",
+      "rapid_expansion",
+      "tax_discrepancies"
+    ],
+    "engine_behavior": {
+      "surface_to_player": true,
+      "allow_player_response": true,
+      "escalate_if_ignored": true
+    }
+  },
+
+  "ai_guidance": {
+    "economic_assumptions": [
+      "medieval_low_margin_trade",
+      "silver_primary_currency",
+      "gold_is_rare_and_not_daily"
+    ],
+    "narrative_integration": {
+      "use_income_flags_for_story_hooks": true,
+      "avoid_flat_income_generation": true
+    }
+  }
+},
+
+"gambling_system": {
+  "enabled": true,
+  "event_types": ["fight_pit", "tourney", "grand_melee"],
+  "fight_pit_rules": {
+    "entry_fee": {"min_dragons": 0.5, "max_dragons": 5},
+    "fighter_wages": {"min_dragons": 0.5, "max_dragons": 2},
+    "max_participants": 12,
+    "odds_calculation": {
+      "base_odds": "fighter_skill + fatigue_modifier + equipment_modifier",
+      "dynamic_tightening": true,
+      "max_win_streak_adjustment": true
+    },
+    "payouts": {
+      "winner": "70% of wager pool + base_prize + random_modifier",
+      "runner_up": "30% of wager pool + partial prize",
+      "house_cut": "10% if applicable"
+    },
+    "risk_scaling": {
+      "injury_chance": "increases with wager",
+      "fatigue_modifier": true
+    },
+    "max_individual_wealth_gain": 20,
+    "max_organization_wealth_gain": 1000,
+    "narrative_feedback": true
+  },
+  "tourney_rules": {
+    "stages": ["qualifier", "semi_final", "final"],
+    "entry_fee": {"min_dragons": 5, "max_dragons": 50},
+    "fighter_wages": {"min_dragons": 2, "max_dragons": 10},
+    "payouts": {
+      "winner": "50% wager pool + base_prize + random_modifier",
+      "runner_up": "25% wager pool + partial prize",
+      "third_place": "15% wager pool + partial prize",
+      "house_cut": "10% if applicable"
+    },
+    "odds_calculation": {
+      "base_odds": "fighter_skill + fame_modifier + fatigue_modifier + equipment_modifier",
+      "dynamic_tightening": true,
+      "max_win_streak_adjustment": true
+    },
+    "risk_scaling": {
+      "injury_chance": "increases with wager and stage difficulty",
+      "fatigue_modifier": true
+    },
+    "max_individual_wealth_gain": 50,
+    "max_organization_wealth_gain": 1000,
+    "narrative_feedback": true
+  },
+  "grand_melee_rules": {
+    "entry_fee": {"min_dragons": 10, "max_dragons": 100},
+    "max_participants": 50,
+    "payouts": {
+      "winner": "dynamic_base_prize + 0.7 * wager_pool - house_cut + random_modifier",
+      "runner_up": "dynamic_base_prize / 2 + 0.3 * wager_pool",
+      "third_place": "dynamic_base_prize / 3 + 0.1 * wager_pool"
+    },
+    "dynamic_base_prize": {
+      "min": 300,
+      "max": 500,
+      "formula": "adjusted_by_participants + local_economy_modifier + fame_modifier"
+    },
+    "risk_scaling": {
+      "injury_chance": "increases with entry_fee and stage difficulty",
+      "fatigue_modifier": true
+    },
+    "max_individual_wealth_gain": 400,
+    "max_organization_wealth_gain": 1000,
+    "narrative_feedback": true
+  },
+  "wager_system": {
+    "player_can_bet": true,
+    "npc_betting_behavior": true,
+    "max_bet_per_player": 50,
+    "max_bet_per_event": 500,
+    "dynamic_odds": true,
+    "wealth_effects": true
+  },
+  "integration": {
+    "coin_updates": true,
+    "asset_updates": true,
+    "event_logging": true,
+    "player_feedback": true,
+    "npc_awareness": true,
+    "reputation_effects": true
+  },
+  "fatigue_effects": {
+    "fighters": true,
+    "player_betting": true
+  },
+  "failure_rules": {
+    "injury": true,
+    "loss": true,
+    "reputation_loss": true
+  }
+}
