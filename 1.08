@@ -1,6 +1,6 @@
 {
   "campaign_title": "Warfield Era – Complete Engine",
-  "engine_version": "1.08-AIGating",
+  "engine_version": "1.08-FAFO",
   "core_principle": {
     "player_agency": "absolute",
     "world_reactivity": "honest",
@@ -10,6 +10,10 @@
   },
 
 "timeline": {
+  "world_simulation_start": "115AC-1-01",
+  "player_departure_date": "115AC-1-15",
+  "player_arrival_date": "115AC-2-15",
+  "player_control_begins": "115AC-2-15",
   "start_date": "115AC-2-15",
   "canonical_start_snapshot": {
     "date": "115AC-2-15",
@@ -265,7 +269,7 @@
 
   "dramatic_tension": "The king’s grant is real, but Rhaenyra’s intent is unresolved. Court factions speculate, test, and maneuver around the unknown outcome. Egon’s visibility, alliances, refusals, or entanglements may elevate or disqualify him naturally. Once the oath is taken, tension shifts to how Egon navigates her ongoing political strategies, rather than pre-selection testing.",
 
-  "name_day_execution": "On the day of Rhaenyra’s eighteenth name day (115 AC, month 4, day 15), at the conclusion of the public celebrations, she may announce her choice—or defer it. Egon may be chosen, passed over, or deliberately rejected. If chosen, the oath is binding and witnessed, and her testing agenda is cleared. If not chosen, Egon’s wardship status proceeds independently. Rumors, alliances, and future opportunities adjust accordingly. No outcome is guaranteed."
+  "name_day_execution": "On the day of Rhaenyra’s eighteenth name day (115 AC, month 3, day 15), at the conclusion of the public celebrations, she may announce her choice—or defer it. Egon may be chosen, passed over, or deliberately rejected. If chosen, the oath is binding and witnessed, and her testing agenda is cleared. If not chosen, Egon’s wardship status proceeds independently. Rumors, alliances, and future opportunities adjust accordingly. No outcome is guaranteed."
 },
 
 "relationship_with_king": {
@@ -1383,6 +1387,216 @@
       "discovery_risk": true,
       "aftermath_consequences": true
     },
+
+  "module_name": "FAFO",
+  "version": "1.09",
+  "authority_expectation_enforcement": {
+    "enabled": true,
+    "global_apply": true,
+
+    "design_principle": {
+      "player_is_free_until_expectation_exists": true,
+      "absence_is_not_defiance_without_expectation": true,
+      "defiance_requires_intent_or_clear_signal": true,
+      "authority_acts_logically_not_magically": true
+    },
+
+    "expectation_system": {
+      "expectation_sources": [
+        "explicit_summons",
+        "scheduled_meeting",
+        "assigned_observation",
+        "wardship_duty",
+        "escort_instruction",
+        "formal_command",
+        "npc_assigned_task"
+      ],
+
+      "expectation_fields": {
+        "issuer": "npc_id",
+        "authority_level": "0-5",
+        "location_required": true,
+        "time_window": "defined_or_flexible",
+        "importance": ["low","medium","high","critical"],
+        "grace_period_minutes": "contextual",
+        "visibility_to_player": true
+      },
+
+      "expectation_decay": {
+        "enabled": true,
+        "decay_if_cancelled": true,
+        "decay_if_fulfilled": true,
+        "does_not_decay_if_unresolved": true
+      }
+    },
+
+    "absence_vs_defiance_logic": {
+      "absence": {
+        "definition": "player not present without explicit expectation",
+        "npc_response": ["notice","curiosity","rumor_generation"],
+        "no_force_allowed": true
+      },
+
+      "soft_avoidance": {
+        "definition": "player misses low-importance expectation",
+        "npc_response": ["follow_up","social_penalty","agenda_adjustment"],
+        "force_not_allowed": true
+      },
+
+      "defiance": {
+        "definition": "player knowingly ignores high-authority expectation",
+        "conditions": [
+          "expectation_active",
+          "authority_level >= 4",
+          "grace_period_expired"
+        ],
+        "npc_response": ["escalation"],
+        "force_allowed": true
+      }
+    },
+
+    "micro_tick_escalation": {
+      "enabled": true,
+      "tick_type": "scene_and_minutes",
+      "ticks_do_not_advance_day": true,
+
+      "escalation_stages": [
+        {
+          "stage": 0,
+          "label": "Expectation Active",
+          "npc_actions": ["wait","monitor"],
+          "player_freedom": "full"
+        },
+        {
+          "stage": 1,
+          "label": "Concern",
+          "trigger": "missed_time_window",
+          "npc_actions": ["send_messenger","check_location"],
+          "player_freedom": "full"
+        },
+        {
+          "stage": 2,
+          "label": "Noncompliance Suspected",
+          "trigger": "no_response",
+          "npc_actions": ["dispatch_guard","quiet_search"],
+          "player_freedom": "mostly_free"
+        },
+        {
+          "stage": 3,
+          "label": "Defiance Confirmed",
+          "trigger": "continued_avoidance",
+          "npc_actions": ["intercept","block_movement"],
+          "player_freedom": "constrained"
+        },
+        {
+          "stage": 4,
+          "label": "Forced Compliance",
+          "trigger": "resistance_or_flight",
+          "npc_actions": ["seize","restrain","use_force","escort_to_authority"],
+          "player_freedom": "combat_or_escape_only"
+        }
+      ]
+    },
+
+    "risk_appetite_integration": {
+      "enabled": true,
+      "low_risk_npcs": {
+        "will_not_initiate_force": true,
+        "will_escalate_via_superiors": true
+      },
+      "high_risk_npcs": {
+        "will_initiate_force": true,
+        "reduced_grace_period": true
+      }
+    },
+
+    "authority_scope_and_reach": {
+      "local": {
+        "examples": ["city_watch","harbor_master"],
+        "response_radius": "district"
+      },
+      "regional": {
+        "examples": ["great_lord","warden"],
+        "response_radius": "city_or_region"
+      },
+      "royal": {
+        "examples": ["king","hand_of_the_king"],
+        "response_radius": "realm_wide",
+        "cannot_be_ignored_indefinitely": true
+      }
+    },
+
+    "missing_npc_protocol": {
+      "enabled": true,
+      "applies_if": ["npc_is_ward_or_assigned","authority_level >= 4"],
+
+      "progression": [
+        {
+          "trigger": "npc_unaccounted_for",
+          "npc_actions": ["discreet_inquiry","staff_questioned"]
+        },
+        {
+          "trigger": "npc_not_found_same_day",
+          "npc_actions": ["guards_alerted","city_watch_notified"]
+        },
+        {
+          "trigger": "npc_missing_24_hours",
+          "npc_actions": ["active_search","control_points_established"]
+        },
+        {
+          "trigger": "npc_missing_72_hours",
+          "npc_actions": ["realm_notification","status_flag_wanted_or_concern"]
+        }
+      ]
+    },
+
+    "player_state_modifiers": {
+      "intoxicated": {
+        "reduces_response_quality": true,
+        "does_not_block_escalation": true
+      },
+      "hiding": {
+        "extends_search_time": true,
+        "increases_suspicion": true
+      },
+      "violent_resistance": {
+        "immediate_stage_jump": 2,
+        "adds_criminal_flag": true
+      },
+      "voluntary_surrender": {
+        "halts_force_escalation": true,
+        "reduces_long_term_penalty": true
+      },
+      "attempted_action_blocked": {
+        "records_intent": true,
+        "prevents_fake_success": true
+      }
+    },
+
+    "outcomes": {
+      "compliance": ["expectation_cleared","trust_adjusted"],
+      "escape": ["wanted_status_possible","rumors_propagate"],
+      "capture": ["detainment","formal_audience","loss_of_freedom"],
+      "continued_avoidance": ["agenda_shift","political_consequences"]
+    },
+
+    "logging": {
+      "expectation_created": true,
+      "escalation_stage_change": true,
+      "force_used": true,
+      "authority_override": true
+    },
+
+    "integration_hooks": {
+      "agenda_system": true,
+      "npc_behavior": true,
+      "rumor_system": true,
+      "scene_interruptions": true,
+      "combat_rules": true
+    }
+  }
+},
+
     "scene_escalation": {
       "enabled": true,
       "purpose": "External execution for depiction-heavy scenes only",
